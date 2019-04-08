@@ -1,0 +1,37 @@
+<aura:component >
+
+    <aura:attribute name="productName" type="String" />
+    <!--<aura:attribute name="productPrice" type="Decimal" />-->
+    <aura:attribute name="currencyIsoCode" type="String" />
+    <!--<aura:attribute name="percent" type="Boolean" />-->
+    <aura:attribute name="CostPerCalendarMonth" type="Decimal" />
+    <aura:attribute name="ATMFeeOtherCurrencies" type="Decimal" />
+    <aura:attribute name="CardReplacementCost" type="Decimal" />
+
+    <p class="slds-p-horizontal_small">
+        {! $Label.c.ProductInfo_ProductName } {! v.productName }
+    </p>
+    <p class="slds-p-horizontal_small">
+        Cost per Calendar Month 
+        <lightning:formattedNumber value="{! v.CostPerCalendarMonth }" style="currency" currencyCode="{! v.currencyIsoCode }" />
+    </p>
+    <p class="slds-p-horizontal_small">
+        ATM Fee in other currencies {! v.ATMFeeOtherCurrencies }%
+    </p>
+    <p class="slds-p-horizontal_small">
+        Card Replacement Cost 
+        <lightning:formattedNumber value="{! v.CardReplacementCost }" style="currency" currencyCode="{! v.currencyIsoCode }" />
+    </p>
+    <!--
+    <p class="slds-p-horizontal_small">
+        {! $Label.c.ProductInfo_ProductCost } 
+        <aura:if isTrue="{! v.percent }" >
+            <lightning:formattedNumber value="{! v.productPrice / 100 }" style="percent" maximumFractionDigits="2" />
+            <aura:set attribute="else">
+                <lightning:formattedNumber value="{! v.productPrice }" style="currency" currencyCode="{! v.currencyIsoCode }" />
+            </aura:set>
+        </aura:if>
+    </p>
+-->
+
+</aura:component>
